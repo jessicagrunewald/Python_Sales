@@ -14,3 +14,6 @@ revenue = db_sales[['ID Loja', 'Valor Final']].groupby('ID Loja').sum()
 # quantity of product sold per store
 # filtering 'ID Loja' and 'Quantidade' columns and group data by store
 quantity_product = db_sales[['ID Loja', 'Quantidade']].groupby('ID Loja').sum()
+
+# average ticket per product in each store
+average_ticket = (revenue['Valor Final'] / quantity_product['Quantidade']).to_frame() # to_frame() to modify to table

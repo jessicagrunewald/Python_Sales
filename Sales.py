@@ -15,6 +15,12 @@ revenue = db_sales[['ID Loja', 'Valor Final']].groupby('ID Loja').sum()
 # filtering 'Mês' and 'Valor Final' columns and group data by store
 revenue_month = db_sales[['Mês', 'Valor Final']].groupby('Mês').sum()
 
+# Top 5 stores with the highest revenue in the year
+highest_revenue = db_sales[['ID Loja', 'Valor Final']].groupby('ID Loja').sum().sort_values(by='Valor Final', ascending=False).head(5)
+
+# Top 5 stores with the lowest revenue in the year
+lower_revenue = db_sales[['ID Loja', 'Valor Final']].groupby('ID Loja').sum().sort_values(by='Valor Final').head(5)
+
 # quantity of product sold per store
 # filtering 'ID Loja' and 'Quantidade' columns and group data by store
 quantity_product = db_sales[['ID Loja', 'Quantidade']].groupby('ID Loja').sum()

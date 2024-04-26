@@ -11,6 +11,11 @@ pd.set_option('display.max_columns', None)
 # filtering 'ID Loja' and 'Valor Final' columns and group data by store
 revenue = db_sales[['ID Loja', 'Valor Final']].groupby('ID Loja').sum()
 
+# revenue per month
+# filtering 'Mês' and 'Valor Final' columns and group data by store
+revenue_month = db_sales[['Mês', 'Valor Final']].groupby('Mês').sum()
+print(revenue_month)
+
 # quantity of product sold per store
 # filtering 'ID Loja' and 'Quantidade' columns and group data by store
 quantity_product = db_sales[['ID Loja', 'Quantidade']].groupby('ID Loja').sum()

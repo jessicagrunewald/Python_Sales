@@ -14,7 +14,6 @@ revenue = db_sales[['ID Loja', 'Valor Final']].groupby('ID Loja').sum()
 # revenue per month
 # filtering 'Mês' and 'Valor Final' columns and group data by store
 revenue_month = db_sales[['Mês', 'Valor Final']].groupby('Mês').sum()
-print(revenue_month)
 
 # quantity of product sold per store
 # filtering 'ID Loja' and 'Quantidade' columns and group data by store
@@ -26,3 +25,7 @@ quantity_product_month = db_sales[['Mês', 'Quantidade']].groupby('Mês').sum()
 
 # average ticket per product in each store
 average_ticket = (revenue['Valor Final'] / quantity_product['Quantidade']).to_frame()
+
+# average ticket per product in each month
+average_ticket_month = (revenue_month['Valor Final'] / quantity_product_month['Quantidade']).to_frame()
+

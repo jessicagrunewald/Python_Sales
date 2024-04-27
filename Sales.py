@@ -1,11 +1,17 @@
 # importing pandas to work with Excel
 import pandas as pd
 
+import datetime
+
 # importing the database
 db_sales = pd.read_excel('Sales.xlsx')
 
 # visualization of database data
 pd.set_option('display.max_columns', None)
+
+# extracting the month from the date column and adding this value in a new column named "Mês"
+db_sales['Data'] = pd.to_datetime(db_sales['Data'], format='%d/%m/%Y')
+db_sales['Mês'] = db_sales['Data'].dt.month
 
 # revenue per store
 # filtering 'ID Loja' and 'Valor Final' columns and group data by store

@@ -1,5 +1,5 @@
 :small_blue_diamond: 🇵🇹
-### Vendas em python
+### Vendas em Python
 
 Atividade em Python, acompanhada da biblioteca Pandas, aplicadas em uma base de dados fictícios em formato .xlxs.
 
